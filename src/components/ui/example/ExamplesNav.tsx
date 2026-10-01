@@ -1,0 +1,287 @@
+"use client";
+
+import { type ReactNode, useEffect, useRef, useState } from "react";
+
+import { ChevronDown, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+export interface NavLink {
+    label: string;
+    href: string;
+}
+
+export interface NavItem {
+    label: string;
+    href?: string;
+    children?: NavLink[];
+}
+
+export interface NavGroup {
+    label: string;
+    items: NavItem[];
+}
+
+const NAV_GROUPS: NavGroup[] = [
+    {
+        label: "Getting Started",
+        items: [{ label: "Quick start", href: "/examples/quick-start" }],
+    },
+    {
+        label: "Columns",
+        items: [
+            { label: "Pinned columns", href: "/examples/columns/pinned-columns" },
+            { label: "Column groups", href: "/examples/columns/column-groups" },
+        ],
+    },
+    {
+        label: "Rows",
+        items: [
+            { label: "No row hover", href: "/examples/react/rows/no-hover" },
+            {
+                label: "Style",
+                children: [
+                    { label: "Row style", href: "/examples/react/rows/style#row-style" },
+                    { label: "Get row style", href: "/examples/react/rows/style#get-row-style" },
+                    { label: "Row class", href: "/examples/react/rows/style#row-class" },
+                    { label: "Get row class", href: "/examples/react/rows/style#get-row-class" },
+                    { label: "Row class rules", href: "/examples/react/rows/style#row-class-rules" },
+                ],
+            },
+        ],
+    },
+    {
+        label: "Cells",
+        items: [
+            {
+                label: "Style",
+                children: [
+                    { label: "Cell style", href: "/examples/react/cells/style#cell-style" },
+                    { label: "Get cell style", href: "/examples/react/cells/style#get-cell-style" },
+                    { label: "Cell class", href: "/examples/react/cells/style#cell-class" },
+                    { label: "Get cell class", href: "/examples/react/cells/style#get-cell-class" },
+                    { label: "Cell class rules", href: "/examples/react/cells/style#cell-class-rules" },
+                ],
+            },
+        ],
+    },
+    {
+        label: "Plugins",
+        items: [
+            {
+                label: "Base",
+                href: "/examples/react/plugins/base",
+                children: [
+                    { label: "Base case", href: "/examples/react/plugins/base/core" },
+                    { label: "Selection", href: "/examples/react/plugins/base/selection" },
+                    { label: "Sorting", href: "/examples/react/plugins/base/sorting" },
+                    { label: "Pagination", href: "/examples/react/plugins/base/pagination" },
+                ],
+            },
+            {
+                label: "Pro",
+                href: "/examples/react/plugins/pro",
+                children: [],
+            },
+        ],
+    },
+];
+
+function splitHash(href: string): [path: string, hash: string] {
+    const [path, hash = ""] = href.split("#");
+    return [path, hash];
+}
+
+function isActive(href: string | undefined, pathname: string, hash: string): boolean {
+    if (!href) return false;
+    const [path, targetHash] = splitHash(href);
+    return path === pathname && (targetHash === "" || targetHash === hash);
+}
+
+function isInSubtree(item: NavItem, pathname: string): boolean {
+    if (item.href && pathname === item.href) return true;
+    if (item.href) {
+        const base = item.href.replace(/\/$/, "");
+        if (pathname.startsWith(`${base}/`)) return true;
+    }
+    const children = item.children ?? [];
+    return children.some((child) => splitHash(child.href)[0] === pathname);
+}
+
+function getSectionIds(item: NavItem): string[] {
+    const children = item.children ?? [];
+    return children.map((child) => splitHash(child.href)[1]).filter(Boolean);
+}
+
+export function ExamplesNav() {
+    const pathname = usePathname();
+    const [hash, setHash] = useState("");
+    const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => {
+        const labels = NAV_GROUPS.flatMap((group) =>
+            group.items
+                .filter((item) => (item.children?.length ?? 0) > 0)
+                .filter((item) => isInSubtree(item, pathname))
+                .map((item) => `${group.label}/${item.label}`),
+        );
+        return new Set(labels);
+    });
+    const [activeAnchor, setActiveAnchor] = useState<string>("");
+
+    // Track hash changes
+    useEffect(() => {
+        const readHash = () => setHash(window.location.hash.replace(/^#/, ""));
+        readHash();
+        window.addEventListener("hashchange", readHash);
+        return () => window.removeEventListener("hashchange", readHash);
+    }, []);
+
+    // Track scroll position to highlight active anchor
+    const observerRef = useRef<IntersectionObserver | null>(null);
+
+    useEffect(() => {
+        const sectionIds = NAV_GROUPS.flatMap((group) => group.items).flatMap(getSectionIds);
+        if (sectionIds.length === 0) return;
+
+        observerRef.current = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        setActiveAnchor(entry.target.id);
+                        break;
+                    }
+                }
+            },
+            {
+                rootMargin: "-20% 0px -70% 0px",
+                threshold: [0.1, 0.5, 0.9],
+            },
+        );
+
+        sectionIds.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element) observerRef.current?.observe(element);
+        });
+
+        return () => observerRef.current?.disconnect();
+    }, [pathname]);
+
+    // Auto-expand branches whose subtree contains the current route.
+    useEffect(() => {
+        setExpanded((previous) => {
+            const toAdd = NAV_GROUPS.flatMap((group) =>
+                group.items
+                    .filter((item) => (item.children?.length ?? 0) > 0)
+                    .filter((item) => isInSubtree(item, pathname))
+                    .map((item) => `${group.label}/${item.label}`),
+            );
+            if (toAdd.length === 0) return previous;
+            const next = new Set(previous);
+            toAdd.forEach((label) => next.add(label));
+            return next;
+        });
+    }, [pathname]);
+
+    const toggleExpanded = (label: string) => {
+        setExpanded((previous) => {
+            const next = new Set(previous);
+            if (next.has(label)) next.delete(label);
+            else next.add(label);
+            return next;
+        });
+    };
+
+    const isItemActive = (item: NavItem): boolean => {
+        if (item.href && isActive(item.href, pathname, hash)) return true;
+        if (item.children) {
+            return item.children.some((child) => isActive(child.href, pathname, hash) || (activeAnchor !== "" && splitHash(child.href)[1] === activeAnchor));
+        }
+        return false;
+    };
+
+    const isChildActive = (child: NavLink): boolean => {
+        return isActive(child.href, pathname, hash) || (activeAnchor !== "" && splitHash(child.href)[1] === activeAnchor);
+    };
+
+    const renderChild = (child: NavLink): ReactNode => {
+        const active = isChildActive(child);
+        return (
+            <li key={child.href}>
+                <Link
+                    href={child.href}
+                    onClick={() => setHash(splitHash(child.href)[1])}
+                    className={`flex items-center border-l py-2 pl-4 font-sans text-[13px] hover:text-mint dark:hover:text-mint-dark ${
+                        active ? "border-mint text-mint dark:text-mint-dark" : "border-slate/40 text-ink dark:text-ink-dark dark:border-slate-dark/40"
+                    }`}
+                >
+                    {child.label}
+                </Link>
+            </li>
+        );
+    };
+
+    const renderItem = (item: NavItem, index: number, groupLabel: string): ReactNode => {
+        const hasChildren = item.children !== undefined && item.children.length > 0;
+        const children = item.children ?? [];
+        const itemKey = `${groupLabel}/${item.label}`;
+        const isOpen = hasChildren && expanded.has(itemKey);
+        const active = isItemActive(item);
+
+        return (
+            <li key={item.label}>
+                <div className="flex items-center">
+                    {item.href ? (
+                        <Link
+                            href={item.href}
+                            className={`flex min-w-0 flex-1 items-center gap-3  py-2.5 font-sans text-sm hover:text-mint dark:hover:text-mint-dark ${
+                                active ? " text-mint dark:text-mint-dark" : ""
+                            }`}
+                        >
+                            <strong className="text-[10px] font-normal text-mint">{String(index + 1).padStart(2, "0")}</strong>
+                            <span className="truncate">{item.label}</span>
+                        </Link>
+                    ) : (
+                        <div className={`flex min-w-0 flex-1 items-center gap-3  py-2.5 font-sans text-sm ${active ? "text-mint dark:text-mint-dark" : ""}`}>
+                            <strong className="text-[10px] font-normal text-mint">{String(index + 1).padStart(2, "0")}</strong>
+                            <span className="truncate">{item.label}</span>
+                        </div>
+                    )}
+                    {hasChildren && (
+                        <button
+                            type="button"
+                            aria-label={`${isOpen ? "Collapse" : "Expand"} ${item.label}`}
+                            aria-expanded={isOpen}
+                            onClick={() => toggleExpanded(itemKey)}
+                            className="cursor-pointer border-b border-transparent p-2.5 font-sans text-xs text-slate dark:text-slate-dark hover:text-mint dark:hover:text-mint-dark"
+                        >
+                            <span className={`inline-block transition-transform duration-150`} aria-hidden="true">
+                                {isOpen ? <ChevronRight className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                            </span>
+                        </button>
+                    )}
+                </div>
+                {hasChildren && (
+                    <ul className={isOpen ? "grid" : "hidden"} role="list">
+                        {children.map(renderChild)}
+                    </ul>
+                )}
+            </li>
+        );
+    };
+
+    return (
+        <aside className="px-8 py-15 max-md:px-5 max-md:py-10">
+            <nav aria-label="React examples">
+                {NAV_GROUPS.map((group) => (
+                    <section key={group.label} className="mb-8">
+                        <h2 className="mb-1 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-slate dark:text-slate-dark">{group.label}</h2>
+                        <div className="mb-3 h-px w-full bg-slate/40 dark:bg-slate-dark/40" aria-hidden="true" />
+                        <ul className="grid gap-2">{group.items.map((item, index) => renderItem(item, index, group.label))}</ul>
+                    </section>
+                ))}
+            </nav>
+            <p className="mt-15 max-w-xs font-sans text-xs leading-[1.6] max-sm:mt-6 text-ink dark:text-ink-dark">
+                Every example pairs a working table with the smallest useful integration.
+            </p>
+        </aside>
+    );
+}

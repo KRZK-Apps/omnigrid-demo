@@ -1,0 +1,7 @@
+.demo-row-class-sticky {
+    background: #fffdee;
+}
+
+.dark .demo-row-class-sticky {
+    background: #16283a;
+}

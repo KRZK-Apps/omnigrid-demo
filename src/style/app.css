@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+    --color-mist: #bbbfbf;
+    --color-slate: #878787;
+    --color-ink: #34403f;
+    --color-mint: #05ad98;
+    --color-paper: #ffffff;
+    --font-display: "Roboto", sans-serif;
+    --font-sans: "Roboto", sans-serif;
+
+    --color-mist-dark: #4a4f4f;
+    --color-slate-dark: #a0a0a0;
+    --color-ink-dark: #e8ebe9;
+    --color-mint-dark: #0ce8c8;
+    --color-paper-dark: #1a1d1e;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    @apply bg-paper font-display text-ink dark:bg-paper-dark dark:text-ink-dark;
+    margin: 0;
+}
