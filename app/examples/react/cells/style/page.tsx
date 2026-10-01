@@ -3,7 +3,7 @@
 import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
 import { CellClassRulesExample } from "@/src/examples/cells/cell-styles/cell-class-rules/CellClassRulesExample";
 import cellClassRulesExampleSource from "@/src/examples/cells/cell-styles/cell-class-rules/CellClassRulesExample.tsx?raw";
-import cellClassRulesExampleColDefsSource from "@/src/examples/cells/cell-styles/cell-class-rules/CellClassRulesExampleColDefs.ts?raw";
+import cellClassRulesExampleColDefsSource from "@/src/examples/cells/cell-styles/cell-class-rules/cellClassRulesExampleColDefs.ts?raw";
 import { CellClassExample } from "@/src/examples/cells/cell-styles/cell-class/CellClassExample";
 import cellClassExampleSource from "@/src/examples/cells/cell-styles/cell-class/CellClassExample.tsx?raw";
 import cellClassExampleColDefsSource from "@/src/examples/cells/cell-styles/cell-class/cellClassExampleColDefs.ts?raw";
@@ -12,7 +12,7 @@ import cellStyleExampleSource from "@/src/examples/cells/cell-styles/cell-style/
 import cellStyleExampleColDefsSource from "@/src/examples/cells/cell-styles/cell-style/cellStyleExampleColDefs.ts?raw";
 import { GetCellClassExample } from "@/src/examples/cells/cell-styles/get-cell-class/GetCellClassExample";
 import getCellClassExampleSource from "@/src/examples/cells/cell-styles/get-cell-class/GetCellClassExample.tsx?raw";
-import getCellClassExampleColDefsSource from "@/src/examples/cells/cell-styles/get-cell-class/GetCellClassExampleColDefs.ts?raw";
+import getCellClassExampleColDefsSource from "@/src/examples/cells/cell-styles/get-cell-class/getCellClassExampleColDefs.ts?raw";
 import { GetCellStyleExample } from "@/src/examples/cells/cell-styles/get-cell-style/GetCellStyleExample";
 import getCellStyleExampleSource from "@/src/examples/cells/cell-styles/get-cell-style/GetCellStyleExample.tsx?raw";
 import getCellStyleExampleColDefsSource from "@/src/examples/cells/cell-styles/get-cell-style/getCellStyleExampleColDefs.ts?raw";
