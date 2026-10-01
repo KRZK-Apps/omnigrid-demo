@@ -25,7 +25,7 @@ export default function HomePage() {
                         <div className="flex items-center gap-6">
                             <a
                                 className="bg-mint px-5 py-[15px] font-sans text-xs font-bold text-paper hover:bg-slate dark:bg-mint-dark dark:hover:bg-slate-dark"
-                                href="/examples/react"
+                                href="/examples/react/quick-start"
                             >
                                 Explore React examples ↗
                             </a>
@@ -81,7 +81,7 @@ export default function HomePage() {
                 <section className="flex flex-col gap-4 mx-auto max-w-[1280px] border-t border-slate px-5 py-[100px] sm:px-8 sm:pb-[115px] dark:border-slate-dark">
                     <p className=" font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint dark:text-mint-dark">Meet it in your stack</p>
                     <h2 className="max-w-[760px] text-[clamp(30px,4vw,52px)] font-normal leading-none tracking-[-.045em]">
-                        React today. Angular, Vue, Svelte, or anything else tomorrow.
+                        React today. More frameworks tomorrow.
                     </h2>
                     <p className="max-w-[500px] font-sans text-xs leading-[1.6]">
                         OmniGrid is framework agnostic at the core. See the React implementation now, then use the same concepts in the framework your product

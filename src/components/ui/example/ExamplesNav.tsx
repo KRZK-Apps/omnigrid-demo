@@ -25,13 +25,13 @@ export interface NavGroup {
 const NAV_GROUPS: NavGroup[] = [
     {
         label: "Getting Started",
-        items: [{ label: "Quick start", href: "/examples/quick-start" }],
+        items: [{ label: "Quick start", href: "/examples/react/quick-start" }],
     },
     {
         label: "Columns",
         items: [
-            { label: "Pinned columns", href: "/examples/columns/pinned-columns" },
-            { label: "Column groups", href: "/examples/columns/column-groups" },
+            { label: "Pinned columns", href: "/examples/react/columns/pinned-columns" },
+            { label: "Column groups", href: "/examples/react/columns/column-groups" },
         ],
     },
     {

@@ -17,10 +17,10 @@ export function SiteHeader() {
                 <Link className="hover:text-mint dark:hover:text-mint-dark" href="/api">
                     API
                 </Link>
-                <Link className="hover:text-mint dark:hover:text-mint-dark" href="/license">
+                {/*<Link className="hover:text-mint dark:hover:text-mint-dark" href="/license">
                     License
-                </Link>
-                <a className="hover:text-mint dark:hover:text-mint-dark" href="https://github.com" target="_blank" rel="noreferrer">
+                </Link>*/}
+                <a className="hover:text-mint dark:hover:text-mint-dark" href="https://github.com/KRZK-Apps/omnigrid" target="_blank" rel="noreferrer">
                     GitHub ↗
                 </a>
                 <ThemeSwitcher />
