@@ -29,7 +29,7 @@ export default function SelectionExamplePage() {
             <ExampleShell
                 id="multi-selection"
                 title="Multi selection"
-                description="Use row clicks or click with 'Shift' key for multi selection."
+                description="Use row clicks or Shift+click to select a range. The panel above the grid shows the selected row count and records."
                 sources={[
                     { label: "SelectionGridExample.tsx", code: multiSelectionGridExampleSrc },
                     { label: "alchemyMColDefs.ts", code: alchemyMColDefsSource },
