@@ -6,11 +6,10 @@ dist/
 build/
 *.tsbuildinfo
 
-# --- Кэш turbo (turborepo) ---
+# --- 
 .turbo/
-
-# --- Кэш Vite ---
 .vite/
+.vercel/
 .next/
 
 # --- Переменные окружения и секреты (Env & Secrets) ---
@@ -49,3 +48,5 @@ desktop.ini
 *.tmp
 *~
 .temp/
+.vercel
+.env*
