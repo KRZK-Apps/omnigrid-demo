@@ -3,9 +3,8 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 
-import "@omnigrid/style/index.css";
-
 import "@/src/style/app.css";
+import "@omnigrid/mint-theme";
 
 export const metadata: Metadata = {
     title: "OmniGrid | Framework-agnostic data grid",

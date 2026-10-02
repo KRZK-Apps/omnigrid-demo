@@ -11,7 +11,7 @@ export function SiteHeader() {
                 OmniGrid
             </Link>
             <nav className="flex items-center gap-3 font-sans text-xs sm:gap-[26px]" aria-label="Main navigation">
-                <Link className="hover:text-mint dark:hover:text-mint-dark max-sm:hidden" href="/examples/quick-start">
+                <Link className="hover:text-mint dark:hover:text-mint-dark max-sm:hidden" href="/examples/react/quick-start">
                     Examples
                 </Link>
                 <Link className="hover:text-mint dark:hover:text-mint-dark" href="/api">

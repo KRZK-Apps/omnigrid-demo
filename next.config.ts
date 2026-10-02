@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
         "@omnigrid/selection-plugin",
         "@omnigrid/sorting-plugin",
         "@omnigrid/pagination-plugin",
-        "@omnigrid/style",
     ],
     webpack(config) {
         config.module.rules.push({
