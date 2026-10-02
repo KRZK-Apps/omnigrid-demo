@@ -2,7 +2,6 @@ import { SiteHeader } from "@/src/components/ui/SiteHeader";
 import { LandingDemo } from "@/src/examples/landing/LandingDemo";
 
 export default function HomePage() {
-    // test
     return (
         <main className="flex h-screen flex-col overflow-hidden bg-paper dark:bg-paper-dark">
             <SiteHeader />
