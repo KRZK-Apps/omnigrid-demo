@@ -10,7 +10,14 @@ import { OmniGrid } from "@omnigrid/react";
 
 export function PaginationGridExample() {
     const data = useAlchemyDS();
-    const paginationPlugin = useMemo(() => new PaginationPlugin<AlchemyRow>({ pageSize: 20 }), []);
+    const paginationPlugin = useMemo(
+        () =>
+            new PaginationPlugin<AlchemyRow>({
+                pageSize: 20,
+                quickJump: true,
+            }),
+        [],
+    );
 
     return (
         <OmniGrid

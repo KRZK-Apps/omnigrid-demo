@@ -13,8 +13,9 @@ export default function PaginationExamplePage() {
                 title="Pagination"
                 description={
                     <span>
-                        The <b>PaginationPlugin</b> slices rows into fixed-size pages through a data processor and renders a pager into the
-                        <b> bottom</b> slot. Set <b>pageSize</b> to control how many rows are shown per page.
+                        The <b>PaginationPlugin</b> slices rows into pages through a data processor and renders row information, page-size
+                        selection, and page navigation into the <b>bottom</b> slot. Row information and page-size selection can be enabled
+                        with <b>blocks</b>, and all three blocks can be ordered with <b>order</b>.
                     </span>
                 }
                 sources={[

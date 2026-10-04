@@ -37,7 +37,6 @@ const NAV_GROUPS: NavGroup[] = [
     {
         label: "Rows",
         items: [
-            { label: "No row hover", href: "/examples/react/rows/no-hover" },
             {
                 label: "Style",
                 children: [
@@ -48,6 +47,7 @@ const NAV_GROUPS: NavGroup[] = [
                     { label: "Row class rules", href: "/examples/react/rows/style#row-class-rules" },
                 ],
             },
+            { label: "No row hover", href: "/examples/react/rows/no-hover" },
         ],
     },
     {
