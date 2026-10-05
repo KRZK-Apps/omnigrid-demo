@@ -20,7 +20,7 @@ import rowClassExampleCssSource from "!!raw-loader!@/src/examples/rows/row-style
 export default function RowStyleExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Base</p>
+            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Rows / Style</p>
             <ExampleShell
                 id="row-style"
                 title="Row style"

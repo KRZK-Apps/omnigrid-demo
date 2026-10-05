@@ -24,7 +24,7 @@ import getCellClassExampleCssSource from "!!raw-loader!@/src/examples/cells/cell
 export default function CellStyleExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Base</p>
+        <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Cells / Style</p>
             <ExampleShell
                 id="cell-style"
                 title="Cell style"

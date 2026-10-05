@@ -7,6 +7,8 @@ import pinnedColumnsColDefsSource from "@/src/examples/columns/pinned-columns/pi
 
 export default function PinnedColumnsPage() {
     return (
+        <>
+        <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Columns / Pinned columns</p>
         <ExampleShell
             title="Pinned columns"
             description={
@@ -22,5 +24,6 @@ export default function PinnedColumnsPage() {
         >
             <PinnedColumnsExample />
         </ExampleShell>
+        </>
     );
 }

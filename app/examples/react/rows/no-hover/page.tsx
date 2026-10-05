@@ -8,7 +8,7 @@ import exampleSource from "@/src/examples/rows/no-hover/NoRowHoverExample.tsx?ra
 export default function NoRowHoverExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Base</p>
+            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Rows / No row hover</p>
             <ExampleShell
                 title="Disable row hover highlight"
                 description={

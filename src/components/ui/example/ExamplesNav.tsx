@@ -60,11 +60,15 @@ const NAV_GROUPS: NavGroup[] = [
                     { label: "Get cell style", href: "/examples/react/cells/style#get-cell-style" },
                     { label: "Cell class", href: "/examples/react/cells/style#cell-class" },
                     { label: "Get cell class", href: "/examples/react/cells/style#get-cell-class" },
-                    { label: "Cell class rules", href: "/examples/react/cells/style#cell-class-rules" },
-                ],
-            },
-        ],
-    },
+                        { label: "Cell class rules", href: "/examples/react/cells/style#cell-class-rules" },
+                    ],
+                },
+                {
+                    label: "Renderer",
+                    children: [{ label: "Custom", href: "/examples/react/cells/renderer#custom" }],
+                },
+            ],
+        },
     {
         label: "Plugins",
         items: [

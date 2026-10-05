@@ -1,7 +1,7 @@
 import { SpeedingTicketRow } from "@/src/data/types";
 import { ColumnDef } from "@omnigrid/react";
 
-import { SpeedingTicketStatusRenderer } from "../../common/renderers/SpeedingTicketStatus";
+import { SpeedingTicketStatusRenderer } from "@/src/examples/common/renderers/SpeedingTicketStatusRenderer";
 
 export const columnGroupsColDefs: ColumnDef<SpeedingTicketRow>[] = [
     { id: "ticketId", field: "ticketId", header: "ID", width: 110 },
