@@ -7,5 +7,5 @@ import { OmniGrid } from "@omnigrid/react";
 export function CoreGridExample() {
     const data = useSpeedingTicketsDS();
 
-    return <OmniGrid columns={speedTicketsMColDefs} data={data} style={{ height: "100%", width: "100%" }} />;
+    return <OmniGrid columns={speedTicketsMColDefs} data={data} style={{ height: "480px", width: "100%" }} />;
 }

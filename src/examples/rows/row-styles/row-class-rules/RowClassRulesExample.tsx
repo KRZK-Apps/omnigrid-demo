@@ -40,7 +40,7 @@ export function RowClassRulesExample() {
                         data={data}
                         getRowId={(row: MinionRow) => row.id}
                         rowClassRules={rowClassRules}
-                        style={{ height: "100%", width: "100%" }}
+                        style={{ height: "480px", width: "100%" }}
                     />
                 </div>
             </div>

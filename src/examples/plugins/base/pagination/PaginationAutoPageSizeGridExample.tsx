@@ -8,11 +8,15 @@ import { paginationColDefs } from "@/src/examples/plugins/base/pagination/pagina
 import { PaginationPlugin } from "@omnigrid/pagination-plugin";
 import { OmniGrid } from "@omnigrid/react";
 
-export function PaginationGridExample() {
-    const data = useAlchemyDS({count: 1000});
+export function PaginationAutoPageSizeGridExample() {
+    const data = useAlchemyDS({ count: 1000 });
     const paginationPlugin = useMemo(
         () =>
-            new PaginationPlugin<AlchemyRow>(),
+            new PaginationPlugin<AlchemyRow>({
+                pageSize: 0,
+                pageSizes: [ 20, 50, 100],
+                blocks: ["pageSize", "navigation"],
+            }),
         [],
     );
 
@@ -23,7 +27,7 @@ export function PaginationGridExample() {
             getRowId={(row) => row.id}
             plugins={[paginationPlugin]}
             rowOverscan={20}
-            style={{ height: "480px", width: "100%" }}
+            style={{ height: "395px", width: "100%" }}
         />
     );
 }

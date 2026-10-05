@@ -333,7 +333,7 @@ export function useSpeedingTicketsDS(options?: DatasetOptions): SpeedingTicketRo
 
     useEffect(() => {
         getSpeedingTickets(options ?? {}).then(setSpeedingTickets);
-    }, []);
+    }, [options?.offset, options?.count, options?.delay]);
 
     return speedingTickets;
 }

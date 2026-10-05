@@ -8,11 +8,17 @@ import { paginationColDefs } from "@/src/examples/plugins/base/pagination/pagina
 import { PaginationPlugin } from "@omnigrid/pagination-plugin";
 import { OmniGrid } from "@omnigrid/react";
 
-export function PaginationGridExample() {
-    const data = useAlchemyDS({count: 1000});
+export function PaginationBlocksGridExample() {
+    const data = useAlchemyDS({ count: 1000 });
     const paginationPlugin = useMemo(
         () =>
-            new PaginationPlugin<AlchemyRow>(),
+            new PaginationPlugin<AlchemyRow>({
+                blocks: [
+                    { name: "rowInfo", slot: "top", position: "start" },
+                    { name: "pageSize", slot: "top", position: "end" },
+                    { name: "navigation", slot: "bottom", position: "end" },
+                ],
+            }),
         [],
     );
 

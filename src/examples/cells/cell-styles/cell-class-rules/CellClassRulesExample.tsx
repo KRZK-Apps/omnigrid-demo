@@ -28,7 +28,7 @@ export function CellClassRulesExample() {
                 <span className="font-sans text-xs text-ink dark:text-ink-dark">Rules re-evaluate and apply in a single batch across all visible cells.</span>
             </div>
             <div className="flex-1 min-h-0">
-                <OmniGrid columns={columns} data={data} getRowId={(row) => row.id} style={{ height: "100%", width: "100%" }} />
+                <OmniGrid columns={columns} data={data} getRowId={(row) => row.id} style={{ height: "480px", width: "100%" }} />
             </div>
         </div>
     );

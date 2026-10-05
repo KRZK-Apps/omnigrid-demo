@@ -19,7 +19,7 @@ export function GetRowStyleExample() {
                 if (data.healthStatus === "healthy") return { backgroundColor: "rgba(5, 173, 152, 0.10)" };
                 return undefined;
             }}
-            style={{ height: "100%", width: "100%" }}
+            style={{ height: "480px", width: "100%" }}
         />
     );
 }

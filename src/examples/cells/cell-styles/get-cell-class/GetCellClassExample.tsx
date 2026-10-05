@@ -10,5 +10,5 @@ import "./getCellClassExample.css";
 export function GetCellClassExample() {
     const data = useMinionsDS();
 
-    return <OmniGrid columns={getCellClassExampleColDefs} data={data} getRowId={(row) => row.id} style={{ height: "100%", width: "100%" }} />;
+    return <OmniGrid columns={getCellClassExampleColDefs} data={data} getRowId={(row) => row.id} style={{ height: "480px", width: "100%" }} />;
 }

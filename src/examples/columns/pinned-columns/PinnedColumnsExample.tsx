@@ -7,5 +7,5 @@ import { OmniGrid } from "@omnigrid/react";
 export function PinnedColumnsExample() {
     const data = useSpeedingTicketsDS();
 
-    return <OmniGrid columns={pinnedColumnsColDefs} data={data} style={{ height: "100%", width: "100%" }} />;
+    return <OmniGrid columns={pinnedColumnsColDefs} data={data} style={{ height: "480px", width: "100%" }} />;
 }

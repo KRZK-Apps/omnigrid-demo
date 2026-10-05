@@ -45,7 +45,7 @@ export function UnselectableRowsExample() {
                     data={data}
                     getRowId={(row) => row.id}
                     plugins={[selectionPlugin]}
-                    style={{ height: "100%", width: "100%" }}
+                    style={{ height: "480px", width: "100%" }}
                 />
             </div>
         </div>

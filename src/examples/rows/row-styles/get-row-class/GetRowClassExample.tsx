@@ -20,7 +20,7 @@ export function GetRowClassExample() {
                 if (data.unionComplaints >= 20) return "demo-row-complainer";
                 return undefined;
             }}
-            style={{ height: "100%", width: "100%" }}
+            style={{ height: "480px", width: "100%" }}
         />
     );
 }

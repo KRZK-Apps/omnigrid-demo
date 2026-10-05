@@ -18,5 +18,5 @@ export function SingleSelectionGridExample() {
         [],
     );
 
-    return <OmniGrid columns={alchemyMColDefs} data={data} getRowId={(row) => row.id} plugins={[selectionPlugin]} style={{ height: "100%", width: "100%" }} />;
+    return <OmniGrid columns={alchemyMColDefs} data={data} getRowId={(row) => row.id} plugins={[selectionPlugin]} style={{ height: "480px", width: "100%" }} />;
 }

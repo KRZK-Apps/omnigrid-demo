@@ -13,7 +13,7 @@ export function RowStyleExample() {
             data={data}
             getRowId={(row) => row.id}
             rowStyle={{ backgroundColor: "rgba(5, 173, 152, 0.10)" }}
-            style={{ height: "100%", width: "100%" }}
+            style={{ height: "480px", width: "100%" }}
         />
     );
 }

@@ -31,7 +31,7 @@ export function RowClassExample() {
                     data={datasets[datasetIndex]}
                     getRowId={(row) => row.id}
                     rowClass="demo-row-class-sticky"
-                    style={{ height: "100%", width: "100%" }}
+                    style={{ height: "480px", width: "100%" }}
                 />
             </div>
         </div>

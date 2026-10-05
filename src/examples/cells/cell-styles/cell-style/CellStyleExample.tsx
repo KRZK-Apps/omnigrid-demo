@@ -8,5 +8,5 @@ import { cellStyleExampleColDefs } from "./cellStyleExampleColDefs";
 export function CellStyleExample() {
     const data = useMinionsDS();
 
-    return <OmniGrid columns={cellStyleExampleColDefs} data={data} getRowId={(row) => row.id} style={{ height: "100%", width: "100%" }} />;
+    return <OmniGrid columns={cellStyleExampleColDefs} data={data} getRowId={(row) => row.id} style={{ height: "480px", width: "100%" }} />;
 }
