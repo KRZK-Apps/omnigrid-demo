@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { ColumnGroupsExample } from "@/src/examples/columns/column-groups/ColumnGroupsExample";
 import columnGroupsExampleSource from "@/src/examples/columns/column-groups/ColumnGroupsExample.tsx?raw";
 import columnGroupsColDefsSource from "@/src/examples/columns/column-groups/columnGroupsColDefs.ts?raw";

@@ -1,12 +1,9 @@
 "use client";
 
 import { type ReactNode, useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vs, vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-import { useTheme } from "next-themes";
 
-import { CopyButton } from "../button/CopyButton";
+import { CodeBlock } from "@/src/components/ui/code/CodeBlock";
 
 export interface ExampleSource {
     label: string;
@@ -32,10 +29,10 @@ function getLanguage(label: string): string {
 export function ExampleShell({ id, title, description, sources, children, className }: ExampleShellProps) {
     sources = sources.map((s: ExampleSource) => ({ ...s, code: s.code.replace('"use client";', "").trim() }));
 
-    const { theme } = useTheme();
     const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
     const [activeSource, setActiveSource] = useState(0);
     const source = sources[activeSource] ?? sources[0];
+    const language: string = getLanguage(source.label);
 
     return (
         <section id={id} className="scroll-mt-8 p-5 pb-10">
@@ -79,24 +76,8 @@ export function ExampleShell({ id, title, description, sources, children, classN
                                 </button>
                             ))}
                         </div>
-                        <CopyButton text={source.code} />
-                        <SyntaxHighlighter
-                            language={getLanguage(source.label)}
-                            style={theme === "dark" ? vscDarkPlus : vs}
-                            customStyle={{
-                                margin: 0,
-                                minHeight: "420px",
-                                padding: "26px",
-                                paddingRight: "128px",
-                                fontSize: "13px",
-                                lineHeight: 1.7,
-                            }}
-                            codeTagProps={{
-                                style: { fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" },
-                            }}
-                        >
-                            {source.code}
-                        </SyntaxHighlighter>
+
+                        <CodeBlock code={source.code} language={language} />
                     </div>
                 )}
             </div>

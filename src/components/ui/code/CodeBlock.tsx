@@ -7,27 +7,21 @@ import { vs, vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { useHasMounted } from "@/src/hooks/useHasMounted";
 import { useTheme } from "next-themes";
 
-export interface CodeBlockSource {
+interface Props {
     code: string;
     language?: string;
 }
 
-interface CodeBlockProps {
-    source: CodeBlockSource;
-}
-
 const FOR_CUT: RegExp[] = [/"use client";\s?\n?/];
 
-export function CodeBlock({ source }: CodeBlockProps) {
+export function CodeBlock({ code, language }: Props) {
     const [copied, setCopied] = useState(false);
     const { theme } = useTheme();
     const hasMounted = useHasMounted();
 
     FOR_CUT.forEach((p: RegExp) => {
-        source.code = source.code.replace(p, "");
+        code = code.replace(p, "");
     });
-
-    const { code, language } = source;
 
     const copySource = async () => {
         await navigator.clipboard.writeText(code);

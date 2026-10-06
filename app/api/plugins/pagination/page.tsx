@@ -1,6 +1,6 @@
-import { APIMethodsList } from "@/src/components/api/APIMethodsList";
-import { APIOptionsList } from "@/src/components/api/APIOptionsList";
-import { APITypesList } from "@/src/components/api/APITypesList";
+import { APIMethodsList } from "@/src/components/content/api/APIMethodsList";
+import { APIOptionsList } from "@/src/components/content/api/APIOptionsList";
+import { APITypesList } from "@/src/components/content/api/APITypesList";
 import { CodeLine } from "@/src/components/ui/code/CodeLine";
 import { PAGINATION_API } from "@/src/generated/pagination-api";
 

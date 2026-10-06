@@ -42,7 +42,7 @@ export default function PluginsPage() {
                             href={plugin.href}
                             className="font-mono text-[13px] text-mint underline decoration-mint/40 underline-offset-2"
                         >
-                            {plugin.href}
+                            {plugin.label}
                         </a>
                     </section>
                 ))}

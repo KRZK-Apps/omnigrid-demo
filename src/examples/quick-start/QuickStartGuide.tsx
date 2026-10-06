@@ -1,6 +1,6 @@
 "use client";
 
-import { CodeBlock, type CodeBlockSource } from "@/src/components/ui/code/CodeBlock";
+import { CodeBlock } from "@/src/components/ui/code/CodeBlock";
 import dataSource from "@/src/data/staticMinions.ts?raw";
 import minionsSColDefs from "@/src/examples/common/colDefs/minionsSColDefs.ts?raw";
 import quickStart1Source from "@/src/examples/quick-start/QuickStart1Example.tsx?raw";
@@ -13,44 +13,46 @@ const INSTALL_PLUGIN_SNIPPET = `npm install @omnigrid/selection-plugin @omnigrid
 interface QuickStartStep {
     title: string;
     description: string;
-    source: CodeBlockSource;
+    code: string;
+    language?: string;
 }
 
 const STEPS: QuickStartStep[] = [
     {
         title: "Install adapter",
         description: "Install the React wrapper. It brings the framework-agnostic grid core with it, so the component is ready to use in a React application.",
-        source: { code: INSTALL_REACT_SNIPPET, language: "bash" },
+        code: INSTALL_REACT_SNIPPET, 
+        language: "bash" ,
     },
     {
         title: "Describe your columns",
         description:
             "Create a ColumnDef for each visible field. Give every column a stable id, then choose its field, width, or flex behavior. Formatters, cell renderers, visibility, sorting, and cell alignment are configured here; the align property affects only cell content.",
-        source: { code: minionsSColDefs },
+        code: minionsSColDefs,
     },
     {
         title: "Connect the data",
         description:
             "Pass any array of rows to the data prop: a local static dataset, an asynchronous response, or generated data. The row type and the column fields should describe the same shape, which keeps the configuration predictable and type-safe.",
-        source: { code: dataSource },
+        code: dataSource,
     },
     {
         title: "Write the minimal integration",
         description:
             "Render the OmniGrid component with column definitions and a data array. When no height is provided, the React wrapper grows to fit the grid; provide a height when you want a scrollable, virtualized viewport.",
-        source: { code: quickStart1Source },
+        code: quickStart1Source,
     },
     {
         title: "Install plugins",
         description:
             "Install only the plugins needed by the grid. Sorting and selection are separate packages, so features stay opt-in and the base grid remains small.",
-        source: { code: INSTALL_PLUGIN_SNIPPET },
+        code: INSTALL_PLUGIN_SNIPPET,
     },
     {
         title: "Attach plugins",
         description:
             "Create the plugin instances once and pass them through the plugins prop. Sorting adds header sorting, while selection adds row highlighting and optional checkboxes. That is the complete integration: install the wrapper, configure columns and data, add the plugins you need, and the grid is ready.",
-        source: { code: quickStart2Source },
+        code: quickStart2Source,
     },
 ];
 export function QuickStartGuide() {
@@ -72,7 +74,7 @@ export function QuickStartGuide() {
                         <h3 className="m-0 flex-1 text-[15px] font-bold text-ink">{step.title}</h3>
                     </div>
                     <p className="px-4 pb-2.5 font-sans text-[14px] leading-[1.6]">{step.description}</p>
-                    <CodeBlock source={step.source} />
+                    <CodeBlock code={step.code} language={step.language} />
                 </section>
             ))}
 

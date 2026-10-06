@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import minionsMColDefsSource from "@/src/examples/common/colDefs/minionsMColDefs.ts?raw";
 import { GetRowClassExample } from "@/src/examples/rows/row-styles/get-row-class/GetRowClassExample";
 import getRowClassExampleSource from "@/src/examples/rows/row-styles/get-row-class/GetRowClassExample.tsx?raw";

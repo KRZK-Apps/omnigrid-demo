@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { CustomCellRendererGridExample } from "@/src/examples/cells/cell-renderers/custom/CustomCellRendererGridExample";
 import customCellRendererGridExampleSource from "@/src/examples/cells/cell-renderers/custom/CustomCellRendererGridExample.tsx?raw";
 import customCellRendererColDefsSource from "@/src/examples/cells/cell-renderers/custom/customCellRendererColDefs.tsx?raw";

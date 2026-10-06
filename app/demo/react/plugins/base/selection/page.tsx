@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import alchemyMColDefsSource from "@/src/examples/common/colDefs/alchemyMColDefs.ts?raw";
 import { CheckboxSelectionGridExample } from "@/src/examples/plugins/base/selection/CheckboxSelectionGridExample";
 import checkboxSelectionGridExampleSrc from "@/src/examples/plugins/base/selection/CheckboxSelectionGridExample.tsx?raw";

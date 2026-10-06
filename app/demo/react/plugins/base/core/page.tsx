@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import speedTicketsMColDefsSource from "@/src/examples/common/colDefs/speedTicketsMColDefs.ts?raw";
 import { CoreGridExample } from "@/src/examples/core-grid/CoreGridExample";
 import exampleSource from "@/src/examples/core-grid/CoreGridExample.tsx?raw";

@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/src/components/ui/SiteHeader";
+import { SiteHeader } from "@/src/components/content/SiteHeader";
 import { LandingDemo } from "@/src/examples/landing/LandingDemo";
 
 export default function HomePage() {

@@ -1,6 +1,6 @@
-import { APIMethodsList } from "@/src/components/api/APIMethodsList";
-import { APIOptionsList } from "@/src/components/api/APIOptionsList";
-import { APITypesList } from "@/src/components/api/APITypesList";
+import { APIMethodsList } from "@/src/components/content/api/APIMethodsList";
+import { APIOptionsList } from "@/src/components/content/api/APIOptionsList";
+import { APITypesList } from "@/src/components/content/api/APITypesList";
 import { CodeLine } from "@/src/components/ui/code/CodeLine";
 import { SORTING_API } from "@/src/generated/sorting-api";
 
@@ -21,6 +21,22 @@ export default function SortingPluginPage() {
                 grid. Clicking a column header toggles <code className="font-mono text-[13px]">asc</code> /{" "}
                 <code className="font-mono text-[13px]">desc</code> / unsorted. Hold <kbd>Ctrl</kbd> while clicking to
                 sort by multiple columns. A custom comparator can be supplied to control how values are compared.
+            </p>
+
+            <p>
+                <a
+                    href="/demo/react/plugins/base/sorting"
+                    target="_blank"
+                    className="font-sans text-[13px] font-bold text-mint hover:underline">
+                    Live demo
+                </a>
+                <span className="mx-2">|</span>
+                <a
+                    href="https://www.npmjs.com/package/@omnigrid/sorting-plugin"
+                    target="_blank"
+                    className="font-sans text-[13px] font-bold text-mint hover:underline">
+                    NPM
+                </a>
             </p>
 
             <section className="mt-12">

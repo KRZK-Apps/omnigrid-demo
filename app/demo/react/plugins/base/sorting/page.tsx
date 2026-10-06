@@ -1,14 +1,14 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { SortingGridExample } from "@/src/examples/plugins/base/sorting/SortingGridExample";
 import exampleSource from "@/src/examples/plugins/base/sorting/SortingGridExample.tsx?raw";
-import { PredefinedSortingGridExample } from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample";
-import PredefinedSortingGridExampleSource from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample.tsx?raw";
-import predefinedSortinColDefsSource from "@/src/examples/plugins/base/sorting/predefinedSort/predefinedSortingColDefs.ts?raw";
 import { DisabledSortGridExample } from "@/src/examples/plugins/base/sorting/disabledSort/DisabledSortGridExample";
 import disabledSortGridExampleSource from "@/src/examples/plugins/base/sorting/disabledSort/DisabledSortGridExample.tsx?raw";
 import disabledSortColDefsSource from "@/src/examples/plugins/base/sorting/disabledSort/disabledSortColDefs.ts?raw";
+import { PredefinedSortingGridExample } from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample";
+import PredefinedSortingGridExampleSource from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample.tsx?raw";
+import predefinedSortinColDefsSource from "@/src/examples/plugins/base/sorting/predefinedSort/predefinedSortingColDefs.ts?raw";
 
 export default function SortingExamplePage() {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { CellClassRulesExample } from "@/src/examples/cells/cell-styles/cell-class-rules/CellClassRulesExample";
 import cellClassRulesExampleSource from "@/src/examples/cells/cell-styles/cell-class-rules/CellClassRulesExample.tsx?raw";
 import cellClassRulesExampleColDefsSource from "@/src/examples/cells/cell-styles/cell-class-rules/cellClassRulesExampleColDefs.ts?raw";

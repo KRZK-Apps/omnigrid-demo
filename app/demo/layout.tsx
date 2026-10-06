@@ -2,8 +2,8 @@
 
 import type { ReactNode } from "react";
 
-import { SiteHeader } from "../../src/components/ui/SiteHeader";
-import { ExamplesNav } from "../../src/components/ui/example/ExamplesNav";
+import { ExamplesNav } from "../../src/components/content/example/ExamplesNav";
+import { SiteHeader } from "../../src/components/content/SiteHeader";
 
 export default function ReactExamplesLayout({ children }: { children: ReactNode }) {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import speedTicketsMColDefsSource from "@/src/examples/common/colDefs/speedTicketsMColDefs.ts?raw";
 import { PaginationAutoPageSizeGridExample } from "@/src/examples/plugins/base/pagination/PaginationAutoPageSizeGridExample";
 import paginationAutoPageSizeGridExampleSource from "@/src/examples/plugins/base/pagination/PaginationAutoPageSizeGridExample.tsx?raw";

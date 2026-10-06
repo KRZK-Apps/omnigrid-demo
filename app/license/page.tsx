@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/src/components/ui/SiteHeader";
+import { SiteHeader } from "@/src/components/content/SiteHeader";
 
 export default function LicensePage() {
     return (

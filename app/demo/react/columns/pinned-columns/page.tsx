@@ -1,6 +1,6 @@
 "use client";
 
-import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { PinnedColumnsExample } from "@/src/examples/columns/pinned-columns/PinnedColumnsExample";
 import pinnedColumnsExampleSource from "@/src/examples/columns/pinned-columns/PinnedColumnsExample.tsx?raw";
 import pinnedColumnsColDefsSource from "@/src/examples/columns/pinned-columns/pinnedColumnsColDefs.ts?raw";

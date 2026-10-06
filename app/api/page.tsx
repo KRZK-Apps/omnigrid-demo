@@ -1,11 +1,6 @@
-const API_ITEMS = [
-    ["Grid options", "Define columns, rows, dimensions, and plugin composition."],
-    ["Column definitions", "Use fields, accessors, formatters, renderers, and flexible widths."],
-    ["Plugins", "Register focused behavior such as sorting without coupling it to the core."],
-    ["Virtualization", "Render only the visible rows and columns for predictable performance."],
-];
+"use client";
 
-export default function ApiPage() {
+export default function ApiIndexPage() {
     return (
         <div>
             <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">
@@ -15,33 +10,50 @@ export default function ApiPage() {
                 Build your own data surface
             </h2>
             <p className="my-[22px] max-w-[680px] font-sans text-sm leading-[1.6]">
-                OmniGrid separates the grid engine from framework bindings and optional behavior. That keeps
-                integrations familiar while the runtime stays portable.
+                OmniGrid separates the grid engine from framework bindings and optional behavior. That keeps integrations
+                familiar while the runtime stays portable. Use the navigation to explore each reference section.
             </p>
-            {API_ITEMS.map(([title, description], index) => (
-                <section
-                    className="mt-[52px] grid grid-cols-[50px_1fr] gap-6 border-t border-slate pt-[26px]"
-                    id={title.toLowerCase().replace(" ", "-")}
-                    key={title}
-                >
-                    <span className="font-sans text-[11px] text-mint">{String(index + 1).padStart(2, "0")}</span>
-                    <div>
-                        <h3 className="text-[30px] font-normal tracking-[-.045em]">{title}</h3>
-                        <p className="my-[10px] font-sans text-[13px] leading-[1.6]">{description}</p>
-                        <pre className="m-0 overflow-auto bg-slate px-5 py-4 font-mono text-[13px] leading-[1.7] text-paper">
-                            <code>
-                                {index === 0
-                                    ? "<OmniGrid columns={columns} data={rows} />"
-                                    : index === 1
-                                      ? '{ id: "name", field: "name", flex: 1 }'
-                                      : index === 2
-                                        ? "plugins={[sortingPlugin]}"
-                                        : "rowOverscan={6}"}
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-            ))}
+
+            <div className="mt-[52px] grid gap-6 border-t border-slate pt-[26px]">
+                {[
+                    {
+                        title: "Grid options",
+                        description: "Define columns, rows, dimensions, and plugin composition.",
+                        href: "/api/grid-options",
+                        code: "<OmniGrid columns={columns} data={rows} />",
+                    },
+                    {
+                        title: "Column definitions",
+                        description: "Use fields, accessors, formatters, renderers, and flexible widths.",
+                        href: "/api/column-definitions",
+                        code: '{ id: "name", field: "name", flex: 1 }',
+                    },
+                    {
+                        title: "Plugins",
+                        description: "Register focused behavior such as sorting without coupling it to the core.",
+                        href: "/api/plugins",
+                        code: "plugins={[sortingPlugin]}",
+                    },
+                    {
+                        title: "Virtualization",
+                        description: "Render only the visible rows and columns for predictable performance.",
+                        href: "/api/virtualization",
+                        code: "rowOverscan={6}",
+                    },
+                ].map((item, index) => (
+                    <section key={item.title} className="border-b border-slate pb-6 last:border-0 last:pb-0">
+                        <span className="font-sans text-[11px] text-mint">{String(index + 1).padStart(2, "0")}</span>
+                        <h3 className="text-[22px] font-normal tracking-[-.045em]">{item.title}</h3>
+                        <p className="my-[10px] font-sans text-[13px] leading-[1.6]">{item.description}</p>
+                        <a
+                            href={item.href}
+                            className="font-mono text-[13px] text-mint underline decoration-mint/40 underline-offset-2"
+                        >
+                            {item.title}
+                        </a>
+                    </section>
+                ))}
+            </div>
         </div>
     );
 }
