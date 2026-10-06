@@ -1,6 +1,7 @@
 "use client";
 
 import { ExampleShell } from "@/src/components/ui/example/ExampleShell";
+import speedTicketsMColDefsSource from "@/src/examples/common/colDefs/speedTicketsMColDefs.ts?raw";
 import { PaginationAutoPageSizeGridExample } from "@/src/examples/plugins/base/pagination/PaginationAutoPageSizeGridExample";
 import paginationAutoPageSizeGridExampleSource from "@/src/examples/plugins/base/pagination/PaginationAutoPageSizeGridExample.tsx?raw";
 import { PaginationBlocksGridExample } from "@/src/examples/plugins/base/pagination/PaginationBlocksGridExample";
@@ -12,12 +13,11 @@ import paginationQuickJumpGridExampleSource from "@/src/examples/plugins/base/pa
 import { PaginationServerSideGridExample } from "@/src/examples/plugins/base/pagination/PaginationServerSideGridExample";
 import paginationServerSideGridExampleSource from "@/src/examples/plugins/base/pagination/PaginationServerSideGridExample.tsx?raw";
 import paginationColDefsSource from "@/src/examples/plugins/base/pagination/paginationColDefs.ts?raw";
-import speedTicketsMColDefsSource from "@/src/examples/common/colDefs/speedTicketsMColDefs.ts?raw";
 
 export default function PaginationExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Plugin / Pagination</p>
+            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Demo / Plugins/ Base / Pagination</p>
             <ExampleShell
                 title="Default pagination"
                 description={

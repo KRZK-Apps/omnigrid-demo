@@ -25,7 +25,7 @@ export default function HomePage() {
                         <div className="flex items-center gap-6">
                             <a
                                 className="bg-mint px-5 py-[15px] font-sans text-xs font-bold text-paper hover:bg-slate dark:bg-mint-dark dark:hover:bg-slate-dark"
-                                href="/examples/react/quick-start"
+                                href="/demo/react/quick-start"
                             >
                                 Explore React examples ↗
                             </a>
@@ -90,7 +90,7 @@ export default function HomePage() {
                     <div>
                         <a
                             className="inline-block bg-mint px-5 py-[15px] font-sans text-xs font-bold text-paper hover:bg-slate dark:bg-mint-dark dark:hover:bg-slate-dark"
-                            href="/examples/react/quick-start"
+                            href="/demo/react/quick-start"
                         >
                             Browse React examples ↗
                         </a>
