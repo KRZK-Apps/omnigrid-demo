@@ -1,5 +1,6 @@
 "use client";
 
+import { APIOptionsList } from "@/src/components/content/api/APIOptionsList";
 import { CodeLine } from "@/src/components/ui/code/CodeLine";
 
 const LEAF_DEF_CODE = `interface ColumnLeafDef<T> {
@@ -32,19 +33,16 @@ const OPTIONS = [
     {
         name: "id",
         type: "string",
-        defaultValue: "—",
         description: "Unique column identifier. Used for sorting, pinning, and plugin internal lookups.",
     },
     {
         name: "header",
         type: "string",
-        defaultValue: "—",
         description: "Column header text displayed in the header row.",
     },
     {
         name: "field",
         type: "keyof T | string",
-        defaultValue: "—",
         description: "Property name on the row data object. If omitted, provide a valueGetter to compute cell content.",
     },
     {
@@ -62,19 +60,16 @@ const OPTIONS = [
     {
         name: "width",
         type: "number",
-        defaultValue: "—",
         description: "Explicit column width in pixels. When set, this takes precedence over flex-based sizing.",
     },
     {
         name: "minWidth",
         type: "number",
-        defaultValue: "—",
         description: "Minimum width constraint when the grid is resized.",
     },
     {
         name: "maxWidth",
         type: "number",
-        defaultValue: "—",
         description: "Maximum width constraint when the grid is resized.",
     },
     {
@@ -92,13 +87,11 @@ const OPTIONS = [
     {
         name: "sortState",
         type: '"asc" | "desc"',
-        defaultValue: "—",
         description: "Initial sort direction. Useful for predefined sorting via the column definition.",
     },
     {
         name: "pinned",
         type: '"left" | "right"',
-        defaultValue: "—",
         description: "Pins the column to the left or right edge so it stays visible during horizontal scrolling.",
     },
     {
@@ -116,49 +109,41 @@ const OPTIONS = [
     {
         name: "valueGetter",
         type: "(row: T) => unknown",
-        defaultValue: "—",
         description: "Computes the cell value from the row data when field is not sufficient.",
     },
     {
         name: "valueFormatter",
         type: "(value: unknown) => string",
-        defaultValue: "—",
         description: "Formats the raw value into a display string for the cell.",
     },
     {
         name: "cellRenderer",
         type: "(params: CellRenderParams<T>) => unknown",
-        defaultValue: "—",
         description: "Custom renderer that replaces the cell content entirely (e.g. a badge, chart, or framework component).",
     },
     {
         name: "cellStyle",
         type: "RowStyle",
-        defaultValue: "—",
         description: "Static CSS styles applied to every cell in this column.",
     },
     {
         name: "getCellStyle",
         type: "(params: CellRenderParams<T>) => RowStyle | undefined",
-        defaultValue: "—",
         description: "Dynamic cell styles computed per visible cell.",
     },
     {
         name: "cellClass",
         type: "string | ((params) => string | undefined)",
-        defaultValue: "—",
         description: "Static or dynamic CSS class applied to cells in this column.",
     },
     {
         name: "getCellClass",
         type: "(params: CellRenderParams<T>) => string | undefined",
-        defaultValue: "—",
         description: "Dynamic cell class computed per visible cell.",
     },
     {
         name: "cellClassRules",
         type: "Record<string, (params) => boolean>",
-        defaultValue: "—",
         description: "Map of class name to predicate. Rules are evaluated in batch on every viewport commit.",
     },
 ];
@@ -189,45 +174,13 @@ export default function ColumnDefinitionsPage() {
                 <h3 className="mt-1 text-[22px] font-normal tracking-[-.045em]">ColumnLeafDef&lt;T&gt;</h3>
                     <CodeLine code={LEAF_DEF_CODE} />
             </section>
-
-            <section className="mt-12">
-                <h3 className="mt-1 text-[22px] font-normal tracking-[-.045em]">Options</h3>
-                <p className="my-[10px] font-sans text-[13px] leading-[1.6]">
+    
+            <APIOptionsList 
+                description={<p className="my-3 font-sans text-[13px] leading-[1.6]">
                     Full list of properties on <code className="font-mono text-[13px]">ColumnLeafDef&lt;T&gt;</code>.
-                </p>
-                <div className="m-0 overflow-auto">
-                    <table className="w-full border-collapse font-sans text-[13px]">
-                        <thead>
-                            <tr>
-                                <th className="border-b border-slate/40 py-2 text-left font-semibold text-ink dark:text-ink-dark">
-                                    Property
-                                </th>
-                                <th className="border-b border-slate/40 py-2 text-left font-semibold text-ink dark:text-ink-dark">
-                                    Type
-                                </th>
-                                <th className="border-b border-slate/40 py-2 text-left font-semibold text-ink dark:text-ink-dark">
-                                    Default
-                                </th>
-                                <th className="border-b border-slate/40 py-2 text-left font-semibold text-ink dark:text-ink-dark">
-                                    Description
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {OPTIONS.map((opt) => (
-                                <tr key={opt.name} className="border-b border-slate/20">
-                                    <td className="py-3 font-mono text-mint">{opt.name}</td>
-                                    <td className="py-3 font-mono text-slate">{opt.type}</td>
-                                    <td className="py-3 text-slate">{opt.defaultValue}</td>
-                                    <td className="py-3 leading-[1.6] text-ink dark:text-ink-dark">{opt.description}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-
+                </p>}
+                 options={OPTIONS}
+            />
         </div>
     );
 }

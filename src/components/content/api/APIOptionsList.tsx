@@ -10,10 +10,10 @@ export interface OptionDetails {
 interface Props {
     description: ReactNode;
     options: OptionDetails[];
-    callbacks: OptionDetails[];
+    callbacks?: OptionDetails[];
 }
 
-export function APIOptionsList({ description, options, callbacks }: Props) {
+export function APIOptionsList({ description, options, callbacks = [] }: Props) {
     return (
         <section className="mt-12">
             <h3 className="mb-3 text-[22px] font-normal tracking-[-.045em]">Options</h3>
