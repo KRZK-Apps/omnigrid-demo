@@ -1,5 +1,7 @@
 "use client";
 
+import { CodeLine } from "@/src/components/ui/code/CodeLine";
+
 const LEAF_DEF_CODE = `interface ColumnLeafDef<T> {
   id: string;
   header: string;
@@ -25,26 +27,6 @@ const LEAF_DEF_CODE = `interface ColumnLeafDef<T> {
   cellClassRules?: CellClassRules<T>;
 }`;
 
-const USAGE_CODE = `const alchemyMColDefs = [
-  { id: "name", header: "Name", field: "itemName", flex: 1 },
-  { id: "power", header: "Power", field: "power", width: 110, align: "right" },
-  {
-    id: "danger",
-    header: "Danger",
-    field: "dangerLevel",
-    width: 130,
-    sortable: false,
-    cellRenderer: (params) => <DangerLevelRenderer value={params.value} />,
-  },
-  {
-    id: "health",
-    header: "Health",
-    field: "health",
-    width: 130,
-    valueGetter: (row) => row.stats?.health,
-    valueFormatter: (value) => String(value) + " HP",
-  },
-];`;
 
 const OPTIONS = [
     {
@@ -195,17 +177,20 @@ export default function ColumnDefinitionsPage() {
                 objects passed to the grid via the <code className="font-mono text-[13px]">columns</code> option. Each
                 definition controls identity, sizing, alignment, sorting, and rendering.
             </p>
+                        
+            <a
+                href="/demo/react/columns/definition"
+                target="_blank"
+                className="font-sans text-[13px] font-bold text-mint hover:underline">
+                Usage
+            </a>
 
-            <section className="mt-[52px] border-t border-slate pt-[26px]">
-                <span className="font-sans text-[11px] text-mint">01</span>
+            <section className="mt-12">
                 <h3 className="mt-1 text-[22px] font-normal tracking-[-.045em]">ColumnLeafDef&lt;T&gt;</h3>
-                <pre className="m-0 overflow-auto bg-slate px-5 py-4 font-mono text-[13px] leading-[1.7] text-paper">
-                    <code>{LEAF_DEF_CODE}</code>
-                </pre>
+                    <CodeLine code={LEAF_DEF_CODE} />
             </section>
 
-            <section className="mt-[52px] border-t border-slate pt-[26px]">
-                <span className="font-sans text-[11px] text-mint">02</span>
+            <section className="mt-12">
                 <h3 className="mt-1 text-[22px] font-normal tracking-[-.045em]">Options</h3>
                 <p className="my-[10px] font-sans text-[13px] leading-[1.6]">
                     Full list of properties on <code className="font-mono text-[13px]">ColumnLeafDef&lt;T&gt;</code>.
@@ -242,13 +227,7 @@ export default function ColumnDefinitionsPage() {
                 </div>
             </section>
 
-            <section className="mt-[52px] border-t border-slate pt-[26px]">
-                <span className="font-sans text-[11px] text-mint">03</span>
-                <h3 className="mt-1 text-[22px] font-normal tracking-[-.045em]">Usage</h3>
-                <pre className="m-0 overflow-auto bg-slate px-5 py-4 font-mono text-[13px] leading-[1.7] text-paper">
-                    <code>{USAGE_CODE}</code>
-                </pre>
-            </section>
+
         </div>
     );
 }

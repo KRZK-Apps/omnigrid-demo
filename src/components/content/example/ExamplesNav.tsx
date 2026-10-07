@@ -10,6 +10,7 @@ const NAV_GROUPS: NavGroup[] = [
     {
         label: "Columns",
         items: [
+            { label: "Definition", href: "/demo/react/columns/definition" },
             { label: "Pinned columns", href: "/demo/react/columns/pinned-columns" },
             { label: "Column groups", href: "/demo/react/columns/column-groups" },
         ],
