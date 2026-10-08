@@ -15,6 +15,7 @@ const LEAF_DEF_CODE = `interface ColumnLeafDef<T> {
   sortable?: boolean;
   align?: "left" | "center" | "right";
   sortState?: "asc" | "desc";
+  sortIndex?: number;
   pinned?: "left" | "right";
   stopRowClick?: boolean;
   stopHeaderClick?: boolean;
@@ -88,6 +89,11 @@ const OPTIONS = [
         name: "sortState",
         type: '"asc" | "desc"',
         description: "Initial sort direction. Useful for predefined sorting via the column definition.",
+    },
+    {
+        name: "sortIndex",
+        type: "number",
+        description: "Runtime 1-based sort priority maintained by SortingPlugin while multiple columns are sorted.",
     },
     {
         name: "pinned",

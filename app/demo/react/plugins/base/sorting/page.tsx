@@ -3,6 +3,11 @@
 import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { SortingGridExample } from "@/src/examples/plugins/base/sorting/SortingGridExample";
 import exampleSource from "@/src/examples/plugins/base/sorting/SortingGridExample.tsx?raw";
+import { SortingServerGridExample } from "@/src/examples/plugins/base/sorting/serverSort/SortingServerGridExample";
+import sortingServerGridExampleSource from "@/src/examples/plugins/base/sorting/serverSort/SortingServerGridExample.tsx?raw";
+import { SortingCustomComparatorGridExample } from "@/src/examples/plugins/base/sorting/customComparator/SortingCustomComparatorGridExample";
+import sortingCustomComparatorGridExampleSource from "@/src/examples/plugins/base/sorting/customComparator/SortingCustomComparatorGridExample.tsx?raw";
+import customComparatorColDefsSource from "@/src/examples/plugins/base/sorting/customComparator/customComparatorColDefs.ts?raw";
 import { DisabledSortGridExample } from "@/src/examples/plugins/base/sorting/disabledSort/DisabledSortGridExample";
 import disabledSortGridExampleSource from "@/src/examples/plugins/base/sorting/disabledSort/DisabledSortGridExample.tsx?raw";
 import disabledSortColDefsSource from "@/src/examples/plugins/base/sorting/disabledSort/disabledSortColDefs.ts?raw";
@@ -49,6 +54,34 @@ export default function SortingExamplePage() {
                 ]}
             >
                 <DisabledSortGridExample />
+            </ExampleShell>
+            <ExampleShell
+                title="Custom comparator"
+                description={
+                    <span>
+                        A column-level <b>comparator</b> takes priority over the plugin's global <b>compare</b> option. Here the "Item Name" column sorts by string length
+                        instead of alphabetically, while every other column falls back to the built-in type-aware comparator.
+                    </span>
+                }
+                sources={[
+                    { label: "SortingCustomComparatorGridExample.tsx", code: sortingCustomComparatorGridExampleSource },
+                    { label: "customComparatorColDefs.ts", code: customComparatorColDefsSource },
+                ]}
+            >
+                <SortingCustomComparatorGridExample />
+            </ExampleShell>
+            <ExampleShell
+                title="Server-side sorting"
+                description={
+                    <span>
+                        In <b>server</b> mode the plugin skips local row reordering and instead calls <b>onChange</b> with the updated sort model, leaving data fetching and ordering to the host. The sort model drives a simulated server request (here re-sorting a generated dataset) whose result is fed back into the <b>data</b> prop.
+                    </span>
+                }
+                sources={[
+                    { label: "SortingServerGridExample.tsx", code: sortingServerGridExampleSource },
+                ]}
+            >
+                <SortingServerGridExample />
             </ExampleShell>
         </>
     );

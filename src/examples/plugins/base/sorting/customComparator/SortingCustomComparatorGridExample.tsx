@@ -4,18 +4,18 @@ import { useMemo } from "react";
 
 import { useAlchemyDS } from "@/src/data/dataService";
 import { AlchemyRow } from "@/src/data/types";
-import { disabledSortColDefs } from "@/src/examples/plugins/base/sorting/disabledSort/disabledSortColDefs";
+import { customComparatorColDefs } from "@/src/examples/plugins/base/sorting/customComparator/customComparatorColDefs";
 import { OmniGrid } from "@omnigrid/react";
 import { SortingPlugin } from "@omnigrid/sorting-plugin";
 
-export function DisabledSortGridExample() {
+export function SortingCustomComparatorGridExample() {
     const data = useAlchemyDS();
     const sortingPlugin = useMemo(() => new SortingPlugin<AlchemyRow>(), []);
 
     return (
-        <OmniGrid
-            columns={disabledSortColDefs} 
-            data={data} 
+        <OmniGrid 
+            columns={customComparatorColDefs}
+            data={data}
             plugins={[sortingPlugin]}
             style={{ height: "480px", width: "100%" }} 
         />

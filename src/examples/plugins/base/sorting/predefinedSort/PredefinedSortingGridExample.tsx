@@ -12,5 +12,12 @@ export function PredefinedSortingGridExample() {
     const data = useAlchemyDS();
     const sortingPlugin = useMemo(() => new SortingPlugin<AlchemyRow>(), []);
 
-    return <OmniGrid columns={predefinedSortingColDefs} data={data} plugins={[sortingPlugin]} rowOverscan={20} style={{ height: "480px", width: "100%" }} />;
+    return (
+        <OmniGrid 
+            columns={predefinedSortingColDefs} 
+            data={data} 
+            plugins={[sortingPlugin]} 
+            style={{ height: "480px", width: "100%" }} 
+        />
+    );
 }
