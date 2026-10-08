@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "next dev --webpack",
         "build": "next build --webpack",
-        "start": "next start"
+        "start": "next start",
+        "generate:interface-docs": "node scripts/generate-interface-docs.mjs"
     },
     "dependencies": {
         "@omnigrid/react": "^0.1.2",

@@ -11,12 +11,13 @@ interface Props {
     description: ReactNode;
     options: OptionDetails[];
     callbacks?: OptionDetails[];
+    heading?: string;
 }
 
-export function APIOptionsList({ description, options, callbacks = [] }: Props) {
+export function APIOptionsList({ description, options, callbacks = [], heading = "Options" }: Props) {
     return (
         <section className="mt-12">
-            <h3 className="mb-3 text-[22px] font-normal tracking-[-.045em]">Options</h3>
+            <h3 className="mb-3 text-[22px] font-normal tracking-[-.045em]">{heading}</h3>
             <div className="my-2 font-sans text-[13px] leading-[1.6]">
                 {description}
             </div>
