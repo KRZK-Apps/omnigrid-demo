@@ -20,6 +20,11 @@ export const COLUMN_GROUP_DEF_API = {
             "description": "Pins the column to a horizontal edge of the grid."
         },
         {
+            "name": "resizable?",
+            "type": "boolean",
+            "description": "Whether this column may be resized by the resize plugin."
+        },
+        {
             "name": "headerRenderer?",
             "type": "(column: ColumnDef<T>) => unknown",
             "description": "Custom renderer for this column's header."

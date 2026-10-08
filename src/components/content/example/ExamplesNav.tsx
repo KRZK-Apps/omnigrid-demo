@@ -60,6 +60,7 @@ const NAV_GROUPS: NavGroup[] = [
                     { label: "Base case", href: "/demo/react/plugins/base/core" },
                     { label: "Selection", href: "/demo/react/plugins/base/selection" },
                     { label: "Sorting", href: "/demo/react/plugins/base/sorting" },
+                    { label: "Resize", href: "/demo/react/plugins/base/resize" },
                     { label: "Pagination", href: "/demo/react/plugins/base/pagination" },
                 ],
             },
