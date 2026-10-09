@@ -25,6 +25,7 @@ export interface NavGroup {
 interface LHSMenuProps {
     groups: NavGroup[];
     ariaLabel?: string;
+    onNavigate?: () => void;
 }
 
 function splitHash(href: string): [path: string, hash: string] {
@@ -53,7 +54,7 @@ function getSectionIds(item: NavItem): string[] {
     return children.map((child) => splitHash(child.href)[1]).filter(Boolean);
 }
 
-export function LHSMenu({ groups, ariaLabel = "Navigation" }: LHSMenuProps) {
+export function LHSMenu({ groups, ariaLabel = "Navigation", onNavigate }: LHSMenuProps) {
     const pathname = usePathname();
     const [hash, setHash] = useState("");
     const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => {
@@ -147,7 +148,10 @@ export function LHSMenu({ groups, ariaLabel = "Navigation" }: LHSMenuProps) {
             <li key={child.href}>
                 <Link
                     href={child.href}
-                    onClick={() => setHash(splitHash(child.href)[1])}
+                    onClick={() => {
+                        setHash(splitHash(child.href)[1]);
+                        onNavigate?.();
+                    }}
                     className={`flex items-center border-l py-2 pl-4 font-sans text-[13px] hover:text-mint dark:hover:text-mint-dark ${
                         active ? "border-mint text-mint dark:text-mint-dark" : "border-slate/40 text-ink dark:text-ink-dark dark:border-slate-dark/40"
                     }`}
@@ -171,6 +175,7 @@ export function LHSMenu({ groups, ariaLabel = "Navigation" }: LHSMenuProps) {
                     {item.href ? (
                         <Link
                             href={item.href}
+                            onClick={onNavigate}
                             className={`flex min-w-0 flex-1 items-center gap-3  py-2.5 font-sans text-sm hover:text-mint dark:hover:text-mint-dark ${
                                 active ? " text-mint dark:text-mint-dark" : ""
                             }`}

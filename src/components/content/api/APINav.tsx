@@ -1,4 +1,7 @@
+"use client";
+
 import { LHSMenu, type NavGroup } from "@/src/components/ui/menu/LHSMenu";
+import { useSidebarActions } from "@/src/components/content/SidebarLayout";
 
 const API_ITEMS: NavGroup[] = [
     {
@@ -29,12 +32,13 @@ const API_ITEMS: NavGroup[] = [
 ];
 
 export function APINav() {
+    const { closeDrawer } = useSidebarActions();
     return (
         <aside className="p-5">
             <div className="pb-5 w-full">
                 <p className="font-bold"><a href="/api">API Reference</a></p>
             </div>
-            <LHSMenu groups={API_ITEMS} ariaLabel="API sections" />
+            <LHSMenu groups={API_ITEMS} ariaLabel="API sections" onNavigate={closeDrawer} />
         </aside>
     );
 }

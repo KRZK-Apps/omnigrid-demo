@@ -1,4 +1,7 @@
+"use client";
+
 import { LHSMenu, type NavGroup } from "@/src/components/ui/menu/LHSMenu";
+import { useSidebarActions } from "@/src/components/content/SidebarLayout";
 
 export type { NavGroup, NavItem, NavLink } from "@/src/components/ui/menu/LHSMenu";
 
@@ -83,9 +86,10 @@ const NAV_GROUPS: NavGroup[] = [
 ];
 
 export function ExamplesNav() {
+    const { closeDrawer } = useSidebarActions();
     return (
         <aside className="p-5">
-            <LHSMenu groups={NAV_GROUPS} ariaLabel="React examples" />
+            <LHSMenu groups={NAV_GROUPS} ariaLabel="React examples" onNavigate={closeDrawer} />
             <p className="mt-15 max-w-xs font-sans text-xs leading-[1.6] max-sm:mt-6 text-ink dark:text-ink-dark">
                 Every example pairs a working table with the smallest useful integration.
             </p>
