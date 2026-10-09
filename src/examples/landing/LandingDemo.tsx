@@ -8,6 +8,7 @@ import { alchemyMColDefs } from "@/src/examples/common/colDefs/alchemyMColDefs";
 import { OmniGrid } from "@omnigrid/react";
 import { SelectionPlugin } from "@omnigrid/selection-plugin";
 import { SortingPlugin } from "@omnigrid/sorting-plugin";
+import { ResizePlugin } from "@omnigrid/resize-plugin";
 
 export function LandingDemo() {
     const data = useAlchemyDS({ count: 300 });
@@ -19,6 +20,7 @@ export function LandingDemo() {
             }),
         [],
     );
+    const resizePlugin = useMemo(() => new ResizePlugin<AlchemyRow>(), []);
 
     return (
         <div className="border border-slate bg-paper dark:border-slate-dark dark:bg-paper-dark">
@@ -31,7 +33,12 @@ export function LandingDemo() {
                 </span>
             </div>
             <div className="h-[420px] sm:h-[540px]">
-                <OmniGrid columns={alchemyMColDefs} data={data} plugins={[sortingPlugin, selectionPlugin]} style={{ height: "100%", width: "100%" }} />
+                <OmniGrid 
+                    columns={alchemyMColDefs} 
+                    data={data} 
+                    plugins={[sortingPlugin, selectionPlugin, resizePlugin]} 
+                    style={{ height: "100%", width: "100%" }} 
+                />
             </div>
         </div>
     );
