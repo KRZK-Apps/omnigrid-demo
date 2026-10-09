@@ -6,9 +6,9 @@ import { useAlchemyDS } from "@/src/data/dataService";
 import { AlchemyRow } from "@/src/data/types";
 import { alchemyMColDefs } from "@/src/examples/common/colDefs/alchemyMColDefs";
 import { OmniGrid } from "@omnigrid/react";
+import { ResizePlugin } from "@omnigrid/resize-plugin";
 import { SelectionPlugin } from "@omnigrid/selection-plugin";
 import { SortingPlugin } from "@omnigrid/sorting-plugin";
-import { ResizePlugin } from "@omnigrid/resize-plugin";
 
 export function LandingDemo() {
     const data = useAlchemyDS({ count: 300 });
@@ -24,15 +24,15 @@ export function LandingDemo() {
 
     return (
         <div className="border border-slate bg-paper dark:border-slate-dark dark:bg-paper-dark">
-            <div className="flex items-center justify-between border-b border-slate px-4 py-[13px] font-sans text-[11px] uppercase dark:border-slate-dark">
+            <div className="flex items-center justify-between border-b border-slate px-4 py-3 font-sans text-xs uppercase dark:border-slate-dark">
                 <span>
-                    <i className="mr-[7px] inline-block size-[7px] rounded-full bg-mint dark:bg-mint-dark" /> Live dataset
+                    <i className="mr-2 inline-block size-2 rounded-full bg-mint dark:bg-mint-dark" /> Live dataset
                 </span>
                 <span>
                     {data.length.toLocaleString("en-US")} rows <b>·</b> {alchemyMColDefs.length} columns
                 </span>
             </div>
-            <div className="h-[420px] sm:h-[540px]">
+            <div className="h-105 sm:h-135">
                 <OmniGrid 
                     columns={alchemyMColDefs} 
                     data={data} 

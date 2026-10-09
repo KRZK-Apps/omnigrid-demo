@@ -10,6 +10,8 @@ import pinnedColumnsResizeColDefsSource from "@/src/examples/plugins/base/resize
 import { GroupedColumnsResizeGridExample } from "@/src/examples/plugins/base/resize/groupedColumns/GroupedColumnsResizeGridExample";
 import groupedColumnsResizeGridExampleSource from "@/src/examples/plugins/base/resize/groupedColumns/GroupedColumnsResizeGridExample.tsx?raw";
 import groupedColumnsResizeColDefsSource from "@/src/examples/plugins/base/resize/groupedColumns/groupedColumnsResizeColDefs.ts?raw";
+import { ResizeEventsGridExample } from "@/src/examples/plugins/base/resize/events/ResizeEventsGridExample";
+import resizeEventsGridExampleSource from "@/src/examples/plugins/base/resize/events/ResizeEventsGridExample.tsx?raw";
 
 export default function ResizeExamplePage() {
     return (
@@ -60,6 +62,20 @@ export default function ResizeExamplePage() {
                 ]}
             >
                 <GroupedColumnsResizeGridExample />
+            </ExampleShell>
+            <ExampleShell
+                title="Resize events"
+                description={
+                    <span>
+                        The resize plugin exposes <code>onResizeStart</code>, <code>onResize</code> and <code>onResizeEnd</code> callbacks. Drag any
+                        resizable column header to fire events — each line below is a single event, showing the column id and its new pixel width.
+                    </span>
+                }
+                sources={[
+                    { label: "ResizeEventsGridExample.tsx", code: resizeEventsGridExampleSource },
+                ]}
+            >
+                <ResizeEventsGridExample />
             </ExampleShell>
         </>
     );
