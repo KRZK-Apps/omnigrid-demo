@@ -11,10 +11,10 @@ export default function ColumnDefinitionsPage() {
             <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">
                 Core reference / Column definitions
             </p>
-            <h2 className="max-w-[740px] text-[clamp(30px,4vw,52px)] font-normal leading-none tracking-[-.045em]">
+            <h2 className="max-w-185 text-[clamp(30px,4vw,52px)] font-normal leading-none tracking-[-.045em]">
                 Column definitions
             </h2>
-            <p className="my-[22px] max-w-[680px] font-sans text-sm leading-[1.6]">
+            <p className="my-5 max-w-170 font-sans text-sm leading-[1.6]">
                 Columns are described declaratively as an array of <code className="font-mono text-[13px]">ColumnDef</code>{" "}
                 objects passed to the grid via the <code className="font-mono text-[13px]">columns</code> option. Each
                 definition controls identity, sizing, alignment, sorting, and rendering.

@@ -4,12 +4,12 @@ import { useMemo } from "react";
 
 import { useAlchemyDS } from "@/src/data/dataService";
 import { AlchemyRow } from "@/src/data/types";
+import { resizeColumnExampleColDefs } from "@/src/examples/plugins/base/resize/resizeColumnExampleColDefs";
 import { OmniGrid } from "@omnigrid/react";
 import { ResizePlugin } from "@omnigrid/resize-plugin";
-import { resizeColumnExampleColDefs } from "@/src/examples/plugins/base/resize/resizeColumnExampleColDefs";
 
 export function ResizeGridExample() {
-    const data = useAlchemyDS({ count: 1000 });
+    const data = useAlchemyDS();
     const resizePlugin = useMemo(() => new ResizePlugin<AlchemyRow>(), []);
 
     return (
