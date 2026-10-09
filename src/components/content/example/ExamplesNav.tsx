@@ -13,6 +13,7 @@ const NAV_GROUPS: NavGroup[] = [
             { label: "Definition", href: "/demo/react/columns/definition" },
             { label: "Pinned columns", href: "/demo/react/columns/pinned-columns" },
             { label: "Column groups", href: "/demo/react/columns/column-groups" },
+            { label: "Header renderer", href: "/demo/react/columns/header-renderer" },
         ],
     },
     {
