@@ -46,6 +46,14 @@ const NAV_GROUPS: NavGroup[] = [
                 ],
             },
             {
+                label: "Value Getter",
+                href: "/demo/react/cells/value-getter",
+            },
+            {
+                label: "Value Formatter",
+                href: "/demo/react/cells/value-formatter",
+            },
+            {
                 label: "Renderer",
                 children: [{ label: "Custom", href: "/demo/react/cells/renderer#custom" }],
             },
