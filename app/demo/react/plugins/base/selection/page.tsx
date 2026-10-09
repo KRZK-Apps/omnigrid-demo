@@ -10,6 +10,8 @@ import { SingleSelectionGridExample } from "@/src/examples/plugins/base/selectio
 import singleSelectionGridExampleSrc from "@/src/examples/plugins/base/selection/SingleSelectionGridExample?raw";
 import { UnselectableRowsExample } from "@/src/examples/plugins/base/selection/UnselectableRowsExample";
 import unselectableRowsExampleSrc from "@/src/examples/plugins/base/selection/UnselectableRowsExample.tsx?raw";
+import { SelectionEventsGridExample } from "@/src/examples/plugins/base/selection/events/SelectionEventsGridExample";
+import selectionEventsGridExampleSrc from "@/src/examples/plugins/base/selection/events/SelectionEventsGridExample.tsx?raw";
 
 export default function SelectionExamplePage() {
     return (
@@ -58,6 +60,22 @@ export default function SelectionExamplePage() {
                 ]}
             >
                 <UnselectableRowsExample />
+            </ExampleShell>
+            <ExampleShell
+                id="selection-events"
+                title="Selection events"
+                description={
+                    <span>
+                        The selection plugin exposes an <code>onSelectionChange</code> callback that fires with a copy of the selection state
+                        (selected row IDs and rows) whenever the selected rows change. Click rows or checkboxes to select them — each line below is a single
+                        event, listing the IDs of all currently selected rows.
+                    </span>
+                }
+                sources={[
+                    { label: "SelectionEventsGridExample.tsx", code: selectionEventsGridExampleSrc },
+                ]}
+            >
+                <SelectionEventsGridExample />
             </ExampleShell>
         </>
     );

@@ -1,0 +1,62 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
+import { useAlchemyDS } from "@/src/data/dataService";
+import { AlchemyRow } from "@/src/data/types";
+import { alchemyMColDefs } from "@/src/examples/common/colDefs/alchemyMColDefs";
+import { OmniGrid } from "@omnigrid/react";
+import { SortingPlugin } from "@omnigrid/sorting-plugin";
+
+interface SortEventLogEntry {
+    id: number;
+    message: string;
+}
+
+export function SortingEventsGridExample() {
+    const data = useAlchemyDS();
+    const [events, setEvents] = useState<SortEventLogEntry[]>([]);
+
+    const sortingPlugin = useMemo(() => {
+        let counter: number = 0;
+        const nextId: () => number = () => ++counter;
+
+        const pushEvent: (message: string) => void = (message) => {
+            setEvents((prev) => [...prev.slice(-3), { id: nextId(), message }]);
+        };
+
+        return new SortingPlugin<AlchemyRow>({
+            onChange: (sortModel) => {
+                if (sortModel.length === 0) {
+                    pushEvent("onChange — sort cleared");
+                } else {
+                    const parts: string = sortModel
+                        .map((item) => `${item.columnId}: ${item.direction}`)
+                        .join(", ");
+                    pushEvent(`onChange — sortModel [${parts}]`);
+                }
+            },
+        });
+    }, []);
+
+    return (
+        <>
+            <OmniGrid
+                columns={alchemyMColDefs}
+                data={data}
+                getRowId={(row) => row.id}
+                plugins={[sortingPlugin]}
+                style={{ height: "480px", width: "100%" }}
+            />
+            <div className="mt-2 max-h-20 w-full overflow-y-auto border border-slate bg-paper font-mono text-xs text-ink">
+                <div className="p-1.5">
+                    {events.length === 0 ? (
+                        <span className="text-ink/50">No sort events yet — click a column header.</span>
+                    ) : (
+                        events.map((entry) => <div key={entry.id}>{entry.message}</div>)
+                    )}
+                </div>
+            </div>
+        </>
+    );
+}

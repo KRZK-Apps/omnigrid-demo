@@ -14,6 +14,8 @@ import disabledSortColDefsSource from "@/src/examples/plugins/base/sorting/disab
 import { PredefinedSortingGridExample } from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample";
 import PredefinedSortingGridExampleSource from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample.tsx?raw";
 import predefinedSortinColDefsSource from "@/src/examples/plugins/base/sorting/predefinedSort/predefinedSortingColDefs.ts?raw";
+import { SortingEventsGridExample } from "@/src/examples/plugins/base/sorting/events/SortingEventsGridExample";
+import sortingEventsGridExampleSource from "@/src/examples/plugins/base/sorting/events/SortingEventsGridExample.tsx?raw";
 
 export default function SortingExamplePage() {
     return (
@@ -82,6 +84,21 @@ export default function SortingExamplePage() {
                 ]}
             >
                 <SortingServerGridExample />
+            </ExampleShell>
+            <ExampleShell
+                title="Sort events"
+                description={
+                    <span>
+                        The sorting plugin exposes an <code>onChange</code> callback that fires with the current sort model whenever the header sort state
+                        changes. Click any column header to sort — each line below is a single event, listing the column id and direction of every active sort in
+                        priority order.
+                    </span>
+                }
+                sources={[
+                    { label: "SortingEventsGridExample.tsx", code: sortingEventsGridExampleSource },
+                ]}
+            >
+                <SortingEventsGridExample />
             </ExampleShell>
         </>
     );

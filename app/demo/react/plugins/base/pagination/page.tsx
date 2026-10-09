@@ -13,6 +13,8 @@ import paginationQuickJumpGridExampleSource from "@/src/examples/plugins/base/pa
 import { PaginationServerSideGridExample } from "@/src/examples/plugins/base/pagination/PaginationServerSideGridExample";
 import paginationServerSideGridExampleSource from "@/src/examples/plugins/base/pagination/PaginationServerSideGridExample.tsx?raw";
 import paginationColDefsSource from "@/src/examples/plugins/base/pagination/paginationColDefs.ts?raw";
+import { PaginationEventsGridExample } from "@/src/examples/plugins/base/pagination/events/PaginationEventsGridExample";
+import paginationEventsGridExampleSource from "@/src/examples/plugins/base/pagination/events/PaginationEventsGridExample.tsx?raw";
 
 export default function PaginationExamplePage() {
     return (
@@ -89,6 +91,20 @@ export default function PaginationExamplePage() {
                 ]}
             >
                 <PaginationServerSideGridExample />
+            </ExampleShell>
+            <ExampleShell
+                title="Pagination events"
+                description={
+                    <span>
+                        In <b>server</b> mode the plugin calls <code>onChange</code> with the requested page and page size whenever the user navigates. The host can
+                        subscribe to those events to trigger a data fetch — each line below is a single event, recording the page and page size the user requested.
+                    </span>
+                }
+                sources={[
+                    { label: "PaginationEventsGridExample.tsx", code: paginationEventsGridExampleSource },
+                ]}
+            >
+                <PaginationEventsGridExample />
             </ExampleShell>
         </>
     );
