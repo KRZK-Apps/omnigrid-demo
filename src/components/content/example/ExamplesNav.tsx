@@ -1,7 +1,7 @@
 "use client";
 
-import { LHSMenu, type NavGroup } from "@/src/components/ui/menu/LHSMenu";
 import { useSidebarActions } from "@/src/components/content/SidebarLayout";
+import { LHSMenu, type NavGroup } from "@/src/components/ui/menu/LHSMenu";
 
 export type { NavGroup, NavItem, NavLink } from "@/src/components/ui/menu/LHSMenu";
 
@@ -70,10 +70,10 @@ const NAV_GROUPS: NavGroup[] = [
                 href: "/demo/react/plugins/base",
                 children: [
                     { label: "Base case", href: "/demo/react/plugins/base/core" },
+                    { label: "Pagination", href: "/demo/react/plugins/base/pagination" },
+                    { label: "Resize", href: "/demo/react/plugins/base/resize" },
                     { label: "Selection", href: "/demo/react/plugins/base/selection" },
                     { label: "Sorting", href: "/demo/react/plugins/base/sorting" },
-                    { label: "Resize", href: "/demo/react/plugins/base/resize" },
-                    { label: "Pagination", href: "/demo/react/plugins/base/pagination" },
                 ],
             },
             {

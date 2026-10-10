@@ -16,7 +16,9 @@ import selectionEventsGridExampleSrc from "@/src/examples/plugins/base/selection
 export default function SelectionExamplePage() {
     return (
         <>
-            <p className="font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Plugin / Selection</p>
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">
+                Demo / Plugins/ Base / Selection
+            </p>
             <ExampleShell
                 id="single-selection"
                 title="Single selection"

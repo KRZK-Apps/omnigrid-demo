@@ -3,24 +3,26 @@
 import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { SortingGridExample } from "@/src/examples/plugins/base/sorting/SortingGridExample";
 import exampleSource from "@/src/examples/plugins/base/sorting/SortingGridExample.tsx?raw";
-import { SortingServerGridExample } from "@/src/examples/plugins/base/sorting/serverSort/SortingServerGridExample";
-import sortingServerGridExampleSource from "@/src/examples/plugins/base/sorting/serverSort/SortingServerGridExample.tsx?raw";
 import { SortingCustomComparatorGridExample } from "@/src/examples/plugins/base/sorting/customComparator/SortingCustomComparatorGridExample";
 import sortingCustomComparatorGridExampleSource from "@/src/examples/plugins/base/sorting/customComparator/SortingCustomComparatorGridExample.tsx?raw";
 import customComparatorColDefsSource from "@/src/examples/plugins/base/sorting/customComparator/customComparatorColDefs.ts?raw";
 import { DisabledSortGridExample } from "@/src/examples/plugins/base/sorting/disabledSort/DisabledSortGridExample";
 import disabledSortGridExampleSource from "@/src/examples/plugins/base/sorting/disabledSort/DisabledSortGridExample.tsx?raw";
 import disabledSortColDefsSource from "@/src/examples/plugins/base/sorting/disabledSort/disabledSortColDefs.ts?raw";
+import { SortingEventsGridExample } from "@/src/examples/plugins/base/sorting/events/SortingEventsGridExample";
+import sortingEventsGridExampleSource from "@/src/examples/plugins/base/sorting/events/SortingEventsGridExample.tsx?raw";
 import { PredefinedSortingGridExample } from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample";
 import PredefinedSortingGridExampleSource from "@/src/examples/plugins/base/sorting/predefinedSort/PredefinedSortingGridExample.tsx?raw";
 import predefinedSortinColDefsSource from "@/src/examples/plugins/base/sorting/predefinedSort/predefinedSortingColDefs.ts?raw";
-import { SortingEventsGridExample } from "@/src/examples/plugins/base/sorting/events/SortingEventsGridExample";
-import sortingEventsGridExampleSource from "@/src/examples/plugins/base/sorting/events/SortingEventsGridExample.tsx?raw";
+import { SortingServerGridExample } from "@/src/examples/plugins/base/sorting/serverSort/SortingServerGridExample";
+import sortingServerGridExampleSource from "@/src/examples/plugins/base/sorting/serverSort/SortingServerGridExample.tsx?raw";
 
 export default function SortingExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Plugin / Sorting</p>
+            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">
+                Demo / Plugins/ Base / Sorting
+            </p>
             <ExampleShell
                 title="Simple sorting"
                 description="Click a column header to sort by that column. Use click + Ctrl to sort multiple columns."

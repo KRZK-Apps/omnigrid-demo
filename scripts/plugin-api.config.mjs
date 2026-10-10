@@ -26,4 +26,14 @@ export const plugins = [
         className: "SortingPlugin",
         output: "omnigrid-demo/src/generated/sorting-api.ts",
     },
+    {
+        name: "resize",
+        exportName: "RESIZE_API",
+        inputs: [
+            "omnigrid/plugins/base/resize/src/index.ts",
+        ],
+        optionsInterface: "ColumnResizePluginOptions",
+        className: "ColumnResizePlugin",
+        output: "omnigrid-demo/src/generated/resize-api.ts",
+    },
 ];

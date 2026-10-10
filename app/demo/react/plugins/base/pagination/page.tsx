@@ -12,14 +12,16 @@ import { PaginationQuickJumpGridExample } from "@/src/examples/plugins/base/pagi
 import paginationQuickJumpGridExampleSource from "@/src/examples/plugins/base/pagination/PaginationQuickJumpGridExample.tsx?raw";
 import { PaginationServerSideGridExample } from "@/src/examples/plugins/base/pagination/PaginationServerSideGridExample";
 import paginationServerSideGridExampleSource from "@/src/examples/plugins/base/pagination/PaginationServerSideGridExample.tsx?raw";
-import paginationColDefsSource from "@/src/examples/plugins/base/pagination/paginationColDefs.ts?raw";
 import { PaginationEventsGridExample } from "@/src/examples/plugins/base/pagination/events/PaginationEventsGridExample";
 import paginationEventsGridExampleSource from "@/src/examples/plugins/base/pagination/events/PaginationEventsGridExample.tsx?raw";
+import paginationColDefsSource from "@/src/examples/plugins/base/pagination/paginationColDefs.ts?raw";
 
 export default function PaginationExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Demo / Plugins/ Base / Pagination</p>
+            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">
+                Demo / Plugins/ Base / Pagination
+            </p>
             <ExampleShell
                 title="Default pagination"
                 description={

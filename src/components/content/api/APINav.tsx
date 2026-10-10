@@ -1,7 +1,7 @@
 "use client";
 
-import { LHSMenu, type NavGroup } from "@/src/components/ui/menu/LHSMenu";
 import { useSidebarActions } from "@/src/components/content/SidebarLayout";
+import { LHSMenu, type NavGroup } from "@/src/components/ui/menu/LHSMenu";
 
 const API_ITEMS: NavGroup[] = [
     {
@@ -18,9 +18,10 @@ const API_ITEMS: NavGroup[] = [
             {
                 label: "Base",
                 children: [
+                    { label: "Pagination", href: "/api/plugins/pagination" },
+                    { label: "Resize", href: "/api/plugins/resize" },
                     { label: "Selection", href: "/api/plugins/selection" },
                     { label: "Sorting", href: "/api/plugins/sorting" },
-                    { label: "Pagination", href: "/api/plugins/pagination" },
                 ],
             },
         ],
