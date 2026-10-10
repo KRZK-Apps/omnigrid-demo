@@ -11,7 +11,7 @@ import { SelectionPlugin } from "@omnigrid/selection-plugin";
 import { SortingPlugin } from "@omnigrid/sorting-plugin";
 
 export function LandingDemo() {
-    const data = useAlchemyDS({ count: 300 });
+    const data = useAlchemyDS({ count: 500 });
     const sortingPlugin = useMemo(() => new SortingPlugin<AlchemyRow>(), []);
     const selectionPlugin = useMemo(
         () =>
