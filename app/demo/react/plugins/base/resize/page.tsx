@@ -4,19 +4,21 @@ import { ExampleShell } from "@/src/components/content/example/ExampleShell";
 import { ResizeGridExample } from "@/src/examples/plugins/base/resize/basic/ResizeGridExample";
 import exampleSource from "@/src/examples/plugins/base/resize/basic/ResizeGridExample.tsx?raw";
 import resizeColumnExampleColDefsSource from "@/src/examples/plugins/base/resize/basic/resizeColumnExampleColDefs.ts?raw";
-import { PinnedColumnsResizeGridExample } from "@/src/examples/plugins/base/resize/pinnedColumns/PinnedColumnsResizeGridExample";
-import pinnedColumnsResizeGridExampleSource from "@/src/examples/plugins/base/resize/pinnedColumns/PinnedColumnsResizeGridExample.tsx?raw";
-import pinnedColumnsResizeColDefsSource from "@/src/examples/plugins/base/resize/pinnedColumns/pinnedColumnsResizeColDefs.ts?raw";
+import { ResizeEventsGridExample } from "@/src/examples/plugins/base/resize/events/ResizeEventsGridExample";
+import resizeEventsGridExampleSource from "@/src/examples/plugins/base/resize/events/ResizeEventsGridExample.tsx?raw";
 import { GroupedColumnsResizeGridExample } from "@/src/examples/plugins/base/resize/groupedColumns/GroupedColumnsResizeGridExample";
 import groupedColumnsResizeGridExampleSource from "@/src/examples/plugins/base/resize/groupedColumns/GroupedColumnsResizeGridExample.tsx?raw";
 import groupedColumnsResizeColDefsSource from "@/src/examples/plugins/base/resize/groupedColumns/groupedColumnsResizeColDefs.ts?raw";
-import { ResizeEventsGridExample } from "@/src/examples/plugins/base/resize/events/ResizeEventsGridExample";
-import resizeEventsGridExampleSource from "@/src/examples/plugins/base/resize/events/ResizeEventsGridExample.tsx?raw";
+import { PinnedColumnsResizeGridExample } from "@/src/examples/plugins/base/resize/pinnedColumns/PinnedColumnsResizeGridExample";
+import pinnedColumnsResizeGridExampleSource from "@/src/examples/plugins/base/resize/pinnedColumns/PinnedColumnsResizeGridExample.tsx?raw";
+import pinnedColumnsResizeColDefsSource from "@/src/examples/plugins/base/resize/pinnedColumns/pinnedColumnsResizeColDefs.ts?raw";
 
 export default function ResizeExamplePage() {
     return (
         <>
-            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">Plugin / Resize</p>
+            <p className="mb-5 font-sans text-[11px] font-bold uppercase tracking-[.12em] text-mint">
+                Demo / Plugins/ Base / Resize
+            </p>
             <ExampleShell
                 title="Resizable columns"
                 description={
